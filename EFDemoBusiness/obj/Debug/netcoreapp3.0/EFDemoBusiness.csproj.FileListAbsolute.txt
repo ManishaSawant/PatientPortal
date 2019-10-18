@@ -1,0 +1,11 @@
+F:\Manisha\PatientPortal\EFDemoBusiness\bin\Debug\netcoreapp3.0\EFDemoBusiness.deps.json
+F:\Manisha\PatientPortal\EFDemoBusiness\bin\Debug\netcoreapp3.0\EFDemoBusiness.dll
+F:\Manisha\PatientPortal\EFDemoBusiness\bin\Debug\netcoreapp3.0\EFDemoBusiness.pdb
+F:\Manisha\PatientPortal\EFDemoBusiness\bin\Debug\netcoreapp3.0\EFDemo.Domain.dll
+F:\Manisha\PatientPortal\EFDemoBusiness\bin\Debug\netcoreapp3.0\EFDemo.Domain.pdb
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.csprojAssemblyReference.cache
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.AssemblyInfoInputs.cache
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.AssemblyInfo.cs
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.csproj.CopyComplete
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.dll
+F:\Manisha\PatientPortal\EFDemoBusiness\obj\Debug\netcoreapp3.0\EFDemoBusiness.pdb

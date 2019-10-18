@@ -1,0 +1,7 @@
+F:\Manisha\PatientPortal\EFDemo.Domain\bin\Debug\netcoreapp3.0\EFDemo.Domain.deps.json
+F:\Manisha\PatientPortal\EFDemo.Domain\bin\Debug\netcoreapp3.0\EFDemo.Domain.dll
+F:\Manisha\PatientPortal\EFDemo.Domain\bin\Debug\netcoreapp3.0\EFDemo.Domain.pdb
+F:\Manisha\PatientPortal\EFDemo.Domain\obj\Debug\netcoreapp3.0\EFDemo.Domain.AssemblyInfoInputs.cache
+F:\Manisha\PatientPortal\EFDemo.Domain\obj\Debug\netcoreapp3.0\EFDemo.Domain.AssemblyInfo.cs
+F:\Manisha\PatientPortal\EFDemo.Domain\obj\Debug\netcoreapp3.0\EFDemo.Domain.dll
+F:\Manisha\PatientPortal\EFDemo.Domain\obj\Debug\netcoreapp3.0\EFDemo.Domain.pdb
