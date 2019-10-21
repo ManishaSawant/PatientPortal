@@ -4,6 +4,8 @@ using EFDemoBusiness.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AutoMapper;
+
 
 namespace EFDemoBusiness
 {
@@ -11,6 +13,8 @@ namespace EFDemoBusiness
     {
         private readonly IPatientRepository _PatientRepository;
 
+     
+        
         public PatientRetriever(IPatientRepository PatientRepository)
         {
             _PatientRepository = PatientRepository;
@@ -18,6 +22,7 @@ namespace EFDemoBusiness
 
         public List<Patient> RetrieveAll()
         {
+         
            return _PatientRepository.RetrieveAll();
         }
     }

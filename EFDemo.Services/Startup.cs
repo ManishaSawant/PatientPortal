@@ -14,6 +14,7 @@ using EFDemo.Domain.DataAccess;
 using EFDemo.Domain.DataAccess.Interfaces;
 using EFDemoBusiness.Interfaces;
 using EFDemoBusiness;
+using EFDemo.Services.Profile;
 
 namespace EFDemo.Services
 {
@@ -31,12 +32,25 @@ namespace EFDemo.Services
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
             services.AddScoped(_ => new EFDemoContext());
             services.AddTransient<IPatientRepository, PatientRepository>();
             services.AddTransient<IPatientRetriever, PatientRetriever>();
-            services.AddAutoMapper(typeof(Startup));
-            //services.AddControllers();
-           
+            services.AddTransient<IPatientInserter, PatientInserter>();
+            services.AddTransient<IPatientUpdater, PatientUpdater>();
+            services.AddTransient<IPatientRemover, PatientRemover>();
+            var config = new AutoMapper.MapperConfiguration(c =>
+              {
+                  c.AddProfile(new ApplicationProfile()) ;
+  
+              }
+           );
+            var mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
+            //services.AddAutoMapper(typeof(Startup));
+            services.AddControllers();
+          
 
         }
 
@@ -47,15 +61,17 @@ namespace EFDemo.Services
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(builder=>builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
 
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+          
         }
     }
 }

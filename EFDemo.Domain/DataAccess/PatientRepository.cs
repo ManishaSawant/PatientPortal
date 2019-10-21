@@ -15,11 +15,43 @@ namespace EFDemo.Domain.DataAccess
             _context = context;
         }
 
-        public EFDemoContext Context { get; }
 
         public List<Patient> RetrieveAll()
         {
             return _context.Patients.ToList();
+        }
+        public Patient Retrieve(int patientId)
+        {
+            return null;
+        }
+        public int  Insert(Patient patient)
+        {
+            _context.Patients.Add(patient);
+            _context.SaveChanges();
+            return patient.PatientId;
+
+        }
+        public int Update(Patient patient)
+        {
+            if (patient==null)
+            {
+                throw new System.ArgumentException("parameter cannot be null", "patient");
+               
+            }
+            _context.Entry(patient).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
+            return patient.PatientId;
+        }
+        public void  Remove(int patientId)
+        {
+            var patient = Retrieve(patientId);
+            if (patient == null)
+            {
+                throw new System.ArgumentException("Remove error");
+
+            }
+            _context.Patients.Remove(patient);
+            _context.SaveChanges();
         }
     }
 }

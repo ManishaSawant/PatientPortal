@@ -8,6 +8,10 @@ namespace EFDemo.Domain.DataAccess.Interfaces
     public interface IPatientRepository
     {
         List<Patient> RetrieveAll();
+        Patient Retrieve(int patientId);
+        int Insert(Patient patient);
+        int Update(Patient patient);
+        void Remove(int patientId);
     }
 
 }

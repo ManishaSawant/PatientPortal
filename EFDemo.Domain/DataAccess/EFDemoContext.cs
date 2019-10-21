@@ -17,7 +17,7 @@ namespace EFDemo.Domain.DataAccess
 
         }
         public DbSet<Patient> Patients { get; set; }
-        public object Patient { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

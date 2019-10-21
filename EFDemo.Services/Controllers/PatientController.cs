@@ -17,6 +17,9 @@ namespace EFDemo.Services.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IPatientRetriever _patentRetriever;
+        private readonly IPatientInserter _PatientInserter;
+        private readonly IPatientUpdater _PatientUpdater;
+        private readonly IPatientRemover _PatientRemover;
         private readonly IMapper _mapper;
 
         public PatientController(IPatientRetriever patentRetriever,IMapper mapper)
@@ -27,8 +30,29 @@ namespace EFDemo.Services.Controllers
         //
         public IActionResult Get()
         {
-           return Ok(_mapper.Map<List<Patient>,List<PatientModel>>( _patentRetriever.RetrieveAll()));
-         }
+            
+            return Ok(_mapper.Map<List<Patient>,List<PatientModel>>( _patentRetriever.RetrieveAll()));
+            //return Ok(_mapper.Map<IList<Patient>,IList<PatientModel>>(_patentRetriever.RetrieveAll()));
+        }
+         [HttpPost,Route("Insert")]
+        public IActionResult Insert([FromBody]PatientModel patientModel )
+        {
+            _PatientInserter.Insert(_mapper.Map<PatientModel,Patient>(patientModel));
+            return Ok("Patient Record has been saved successfully");
+        }
+        [HttpPut, Route("Update")]
+        public IActionResult Update([FromBody]PatientModel patientModel)
+        {
+            _PatientUpdater.Update(_mapper.Map<PatientModel, Patient>(patientModel));
+            return Ok("Patient Record has been updated successfully");
+        }
+
+        [HttpDelete, Route("Delete/{patientId}")]
+        public IActionResult Remove(int patientId)
+        {
+            _PatientRemover.Remove(patientId);
+            return Ok("Patient Record has been deleted successfully");
+        }
 
     }
 }

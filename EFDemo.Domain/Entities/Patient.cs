@@ -13,4 +13,5 @@ namespace EFDemo.Domain.Entities
         public string EmailId { get; set; }
         public string Phone { get; set; }
     }
+
 }
