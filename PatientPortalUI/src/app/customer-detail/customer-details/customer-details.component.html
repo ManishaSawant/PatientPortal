@@ -1,0 +1,108 @@
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" datasource="formData"> 
+    <input type="hidden" name="PatientId" #PatientId="ngModel"  [ngModel]="custdetService.formData.PatientId"> 
+        <div class="row">
+      <div class="form-group col-md-4">
+        <div class="input-group">
+                 <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                          <i class="fas fa-user-circle"  [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched" ></i>
+                    </div>
+                    </div>
+            <input name="FirstName" #FirstName="ngModel" class="form-control"  [ngModel]="custdetService.formData.FirstName" placeholder="First Name" required >
+          </div>
+      </div>
+    
+      <div class="form-group col-md-4">
+            <div class="input-group">
+                     <div class="input-group-prepend">
+                         <div class="input-group-text bg-white">
+                              <i class="fas fa-user-circle"></i>                 
+                          </div>
+                        </div>
+                <input name="MidName" #MidName="ngModel" class="form-control" [ngModel]="custdetService.formData.MidName" placeholder="Mid Name" required > 
+            </div> 
+          </div>
+        
+          <div class="form-group col-md-4">
+                <div class="input-group">
+                         <div class="input-group-prepend">
+                             <div class="input-group-text bg-white">
+                                  <i class="fas fa-user-circle"></i>                     
+                              </div>
+                            </div>
+                    <input name="LastName" #LastName="ngModel" class="form-control" [ngModel]="custdetService.formData.LastName" placeholder="Last Name" required >
+                </div> 
+              </div>    
+              <div class="row">
+                  <div class="form-group col-md-12">
+                          <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched" >
+                              <label >First name is required.</label>
+                               </div>
+                          <div class="validation-error" *ngIf="MidName.invalid && MidName.touched" >
+                              <label >Mid name is required.</label>
+                               </div>
+                          <div class="validation-error" *ngIf="LastName.invalid && LastName.touched" >
+                              <label >Last name is required.</label>
+                               </div>
+                    </div>
+                 
+              </div>  
+            </div>
+            <div class="row">
+                <div class="form-group col-md-8">
+                    <div class="input-group ">
+                             <div class="input-group-prepend">
+                                 <div class="input-group-text bg-white">
+                                   
+                                      <i class="fas fa-address-book"></i>
+                                  </div>
+                                </div>
+                        <input class="form-control" name="EmailId" #EmailId="ngModel"  [ngModel]="custdetService.formData.EmailId" placeholder="Email" required>
+                       
+                      </div>  
+                  </div>
+                  
+                        
+                     
+          </div>
+          <div class="row">
+            
+                  <div class="validation-error" *ngIf="EmailId.invalid && EmailId.touched">Address is required</div>
+                </div>
+           
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <div class="input-group">
+                             <div class="input-group-prepend">
+                                 <div class="input-group-text bg-white">
+                                      <i class="fas fa-mobile-alt"></i>
+                                  </div>
+                                </div>
+                        <input class="form-control" type="number" type="number" minlength="10" maxlength="10" minlength="10"  name="Phone" #Phone="ngModel"  [ngModel]="custdetService.formData.Phone" placeholder="10 Digit Mobile No"
+                        oninput="javascript: if (this.value.length > this.maxLength) 
+                        {
+                          this.value = this.value.slice(0, this.maxLength);
+                        }"
+                     
+                        required>
+  
+                   </div>  
+                  </div>   
+                  <div class="row">
+            
+                      <div class="validation-error" *ngIf="Phone.invalid && Phone.touched">Mobile No. is required</div>
+                    </div>
+            </div>
+                                 
+          
+                   
+                            <div class="form-group col-md-4">
+                              <button type="submit"  class=" btn btn-success btn-lg btn-block" [disabled]="form.invalid"> 
+                                  <i class="fas fa-save"> submit  </i>                         
+                          </button>
+                       
+                           
+                          </div>
+                                      
+    </form>

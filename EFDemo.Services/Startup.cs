@@ -61,7 +61,12 @@ namespace EFDemo.Services
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseCors(builder=>builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            
+            app.UseCors(Options =>
+           Options.WithOrigins("http://localhost:4200").
+           AllowAnyMethod().AllowAnyHeader()
+           );
+
             app.UseRouting();
 
             app.UseAuthorization();

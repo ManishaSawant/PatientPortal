@@ -17,15 +17,23 @@ namespace EFDemo.Services.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IPatientRetriever _patentRetriever;
-        private readonly IPatientInserter _PatientInserter;
-        private readonly IPatientUpdater _PatientUpdater;
-        private readonly IPatientRemover _PatientRemover;
         private readonly IMapper _mapper;
+        private readonly IPatientInserter _patientInserter;
+        private readonly IPatientUpdater _patientUpdater;
+        private readonly IPatientRemover _patientRemover;
 
-        public PatientController(IPatientRetriever patentRetriever,IMapper mapper)
+        public PatientController(IPatientRetriever patentRetriever,IMapper mapper,
+            IPatientInserter patientInserter,
+            IPatientUpdater patientUpdater,
+            IPatientRemover patientRemover
+           )
         {
             _patentRetriever = patentRetriever;
+            _patientInserter = patientInserter;
+            _patientUpdater = patientUpdater;
+            _patientRemover = patientRemover;
             _mapper = mapper;
+           
         }
         //
         public IActionResult Get()
@@ -37,20 +45,20 @@ namespace EFDemo.Services.Controllers
          [HttpPost,Route("Insert")]
         public IActionResult Insert([FromBody]PatientModel patientModel )
         {
-            _PatientInserter.Insert(_mapper.Map<PatientModel,Patient>(patientModel));
+            _patientInserter.Insert(_mapper.Map<PatientModel,Patient>(patientModel));
             return Ok("Patient Record has been saved successfully");
         }
         [HttpPut, Route("Update")]
         public IActionResult Update([FromBody]PatientModel patientModel)
         {
-            _PatientUpdater.Update(_mapper.Map<PatientModel, Patient>(patientModel));
+            _patientUpdater.Update(_mapper.Map<PatientModel, Patient>(patientModel));
             return Ok("Patient Record has been updated successfully");
         }
 
         [HttpDelete, Route("Delete/{patientId}")]
         public IActionResult Remove(int patientId)
         {
-            _PatientRemover.Remove(patientId);
+            _patientRemover.Remove(patientId);
             return Ok("Patient Record has been deleted successfully");
         }
 

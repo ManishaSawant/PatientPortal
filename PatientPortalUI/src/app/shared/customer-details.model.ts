@@ -1,8 +1,9 @@
-export class Patient{
+export class CustomerDetails {
     PatientId:number;
     FirstName:string;
-    LastName:string;
     MidName:string;
+    LastName:string;
     EmailId:string;
     Phone:string;
 }
+
